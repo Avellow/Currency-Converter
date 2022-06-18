@@ -1,3 +1,5 @@
+import {ratesApi} from "../utils/constants";
+
 const defaultState = {
     base: 'USD',
     rates: {}
@@ -17,3 +19,9 @@ export const ratesReducer = (state = defaultState, action) => {
 
 //export const addRate = (payload) => ({type: ADD_RATE, payload})
 export const addRates = (payload) => ({type: ADD_RATES, payload})
+
+export const addRatesFromApi = () => (dispatch) => {
+    ratesApi
+        .getRatePairs()
+        .then(rates => dispatch(addRates(rates)))
+}

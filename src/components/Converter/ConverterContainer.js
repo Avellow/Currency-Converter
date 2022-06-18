@@ -13,15 +13,17 @@ const ConverterContainer = () => {
     const to = useSelector(state => state.converter.to)
     const rate = useSelector(state => state.converter.rate)
 
-    const baseRates = useSelector(state => state.rates.rates)
+    const baseRates = useSelector(state => state.rates.rates.rates)
 
     const onFromChange = (text) => {
         dispatch(changeFromCurrency(text))
-        dispatch(changeRate(baseRates[text.toUpperCase()] / baseRates[to.toUpperCase()]))
+
+        dispatch(changeRate(baseRates[to.toUpperCase()] / baseRates[text.toUpperCase()]))
     }
     const onToChange = (text) => {
         dispatch(changeToCurrency(text))
-        dispatch(changeRate(baseRates[from.toUpperCase()] / baseRates[text.toUpperCase()]))
+
+        dispatch(changeRate(baseRates[text.toUpperCase()] / baseRates[from.toUpperCase()]))
     }
 
     const onValueChange = (newValue) => setValue(newValue)

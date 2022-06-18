@@ -3,18 +3,14 @@ import Converter from "../Converter/Converter";
 import {useEffect} from "react";
 import {ratesApi} from "../../utils/constants";
 import {useDispatch, useSelector} from "react-redux";
-import {addRates} from "../../store/ratesReducer";
+import {addRates, addRatesFromApi} from "../../store/ratesReducer";
 import ConverterContainer from "../Converter/ConverterContainer";
 
 function App() {
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        ratesApi
-            .getRatePairs()
-            .then((data) => dispatch(addRates(data.rates)))
-    }, [])
+    useEffect(() => dispatch(addRatesFromApi()), [])
 
     return (
         <div className="App">
