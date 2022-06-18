@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import {ratesApi} from "../../utils/constants";
 import {useDispatch, useSelector} from "react-redux";
 import {addRates} from "../../store/ratesReducer";
+import ConverterContainer from "../Converter/ConverterContainer";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
 
     return (
         <div className="App">
-            <Converter />
+            <ConverterContainer />
         </div>
     );
 }
