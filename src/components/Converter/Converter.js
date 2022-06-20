@@ -4,14 +4,18 @@ const Converter = (props) => {
     const {
         from,
         to,
-        rate,
         result,
+        err,
         calc,
         onFromChange,
         onToChange,
         onValueChange,
         value
     } = props;
+
+    const onCalc = () => {
+        calc()
+    }
 
     return (
         <div>
@@ -29,8 +33,10 @@ const Converter = (props) => {
             /> = {result}
 
             <button
-                onClick={calc}
+                onClick={onCalc}
             >посчитать</button>
+
+            {err && (<p>{ err }</p>)}
         </div>
     )
 }
