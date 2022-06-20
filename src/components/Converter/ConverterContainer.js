@@ -24,7 +24,9 @@ const ConverterContainer = () => {
         dispatch(changeToCurrency(text.toUpperCase()))
     }
 
-    const onValueChange = (newValue) => setValue(newValue)
+    // с проверкой чтобы новое значение было число или пустая строка
+    const onValueChange = (newValue) =>
+        (/^[0-9\b]+$/.test(newValue) || !newValue) && setValue(newValue)
 
     const getConvertedResult = () => {
 
