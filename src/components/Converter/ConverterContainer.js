@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {changeFromCurrency, changeToCurrency, changeRate} from "../../store/converterReducer";
+import React, {useState} from 'react';
+import {changeFromCurrency, changeToCurrency} from "../../store/converterReducer";
 import Converter from "./Converter";
 import {useDispatch, useSelector} from "react-redux";
 

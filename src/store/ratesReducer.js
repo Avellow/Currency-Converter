@@ -5,7 +5,6 @@ const defaultState = {
     rates: {}
 }
 
-const ADD_RATE = 'ADD_RATE'
 const ADD_RATES = 'ADD_RATES'
 
 export const ratesReducer = (state = defaultState, action) => {
@@ -17,7 +16,6 @@ export const ratesReducer = (state = defaultState, action) => {
     }
 }
 
-//export const addRate = (payload) => ({type: ADD_RATE, payload})
 export const addRates = (payload) => ({type: ADD_RATES, payload})
 
 export const addRatesFromApi = () => (dispatch) => {
