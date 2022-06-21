@@ -1,8 +1,9 @@
-import './App.css';
+import './App.module.scss';
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {addRatesFromApi} from "../../store/ratesReducer";
 import ConverterContainer from "../Converter/ConverterContainer";
+import s from './App.module.scss'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     useEffect(() => dispatch(addRatesFromApi()), [])
 
     return (
-        <div className="App">
+        <div className={s.app}>
             <ConverterContainer />
         </div>
     );

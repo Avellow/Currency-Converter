@@ -1,4 +1,5 @@
 import React from "react";
+import s from './Converter.module.scss'
 
 const Converter = (props) => {
     const {
@@ -18,7 +19,7 @@ const Converter = (props) => {
     }
 
     return (
-        <div>
+        <div className={s.container}>
             <input
                 onChange={(e => onValueChange(e.target.value))}
                 value={value}
