@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #fff;
+  border: 1px solid #777777;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #caf6ca;
+}

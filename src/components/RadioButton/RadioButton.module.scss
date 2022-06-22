@@ -1,0 +1,20 @@
+.input {
+  display: none;
+}
+
+.input:checked + .label {
+  background-color: greenyellow;
+}
+
+.label {
+  display: block;
+  border: 1px solid #777777;
+  border-right: none;
+  padding: 10px;
+}
+
+.label:first-of-type {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
