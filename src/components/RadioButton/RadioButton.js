@@ -3,7 +3,8 @@ import style from './RadioButton.module.scss'
 
 const RadioButton = (props) => {
     const {
-       value,
+        value,
+        onClick,
     } = props
 
     return (
@@ -14,6 +15,7 @@ const RadioButton = (props) => {
                 name='cur'
                 value={value}
                 id={value}
+                onChange={() => onClick(value)}
             />
             <label className={style.label} htmlFor={value}>{value}</label>
         </>

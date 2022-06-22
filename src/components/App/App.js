@@ -16,7 +16,7 @@ function App() {
 
     return (
         <div className={s.app}>
-            <CurrencyConfig />
+            <CurrencyConfig convertType='from' />
         </div>
     );
 }

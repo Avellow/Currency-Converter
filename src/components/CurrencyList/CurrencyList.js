@@ -4,7 +4,10 @@ import RadioButton from "../RadioButton/RadioButton";
 import Popup from "../Popup/Popup";
 
 const CurrencyList = (props) => {
-    const {currencies} = props
+    const {
+        currencies,
+        onCurrencyChange,
+    } = props
 
 
     const base = ['usd', 'rub', 'eur'] // из пропсов
@@ -23,9 +26,19 @@ const CurrencyList = (props) => {
     return (
         <div className={style.container}>
             {
-                base.map((cur, i) => (<RadioButton key={i} value={cur} />))
+                base.map((cur, i) => (
+                        <RadioButton
+                            key={i}
+                            value={cur}
+                            onClick={onCurrencyChange}
+                        />
+                    )
+                )
             }
-            <RadioButton value={additional} />
+            <RadioButton
+                value={additional}
+                onClick={onCurrencyChange}
+            />
             <button
                 className={style.button}
                 onClick={openPopup}
