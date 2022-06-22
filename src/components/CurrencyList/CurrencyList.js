@@ -7,13 +7,15 @@ const CurrencyList = (props) => {
     const {
         currencies,
         onCurrencyChange,
+        selectedCurrency,
+        convertType,
     } = props
 
 
-    const base = ['usd', 'rub', 'eur'] // из пропсов
-    const additional = 'jpy' // в состояние
+    const base = ['USD', 'RUB', 'EUR'] // из пропсов
 
     const [isPopupOpened, setIsPopupOpened] = useState(false);
+    const [additionalCurrency, setAdditionalCurrency] = useState('JPY')
 
     function openPopup() {
         setIsPopupOpened(true)
@@ -23,6 +25,16 @@ const CurrencyList = (props) => {
         setIsPopupOpened(false)
     }
 
+    function changeAdditionalCurrency(currency) {
+        setAdditionalCurrency(currency)
+        onCurrencyChange(currency)
+        closePopup();
+    }
+
+    function isCurrencyChecked(currency) {
+        return currency === selectedCurrency;
+    }
+
     return (
         <div className={style.container}>
             {
@@ -30,23 +42,34 @@ const CurrencyList = (props) => {
                         <RadioButton
                             key={i}
                             value={cur}
+                            name={convertType}
                             onClick={onCurrencyChange}
+                            isChecked={isCurrencyChecked(cur)}
                         />
                     )
                 )
             }
             <RadioButton
-                value={additional}
+                value={additionalCurrency}
                 onClick={onCurrencyChange}
+                name={convertType}
+                isChecked={isCurrencyChecked(additionalCurrency)}
             />
             <button
                 className={style.button}
                 onClick={openPopup}
             >Еще</button>
             <Popup isOpened={isPopupOpened} onClose={closePopup}>
-                <ul>
+                <ul className={style}>
                     {
-                        currencies.map((curr, i) => <li key={i}>{curr}</li>)
+                        currencies.map((curr, i) => (
+                                <li
+                                    className={style.additional}
+                                    key={i}
+                                    onClick={() => changeAdditionalCurrency(curr)}
+                                >{curr}</li>
+                            )
+                        )
                     }
                 </ul>
             </Popup>

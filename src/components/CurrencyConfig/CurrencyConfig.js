@@ -10,6 +10,7 @@ const CurrencyConfig = (props) => {
     } = props
 
     const currencies = useSelector(state => state.rates.rates.rates) || {}
+    const selectedCurrency = useSelector(state => state.converter[convertType])
     const dispatch = useDispatch()
 
     function onCurrencyChange(currency) {
@@ -21,6 +22,8 @@ const CurrencyConfig = (props) => {
             <CurrencyList
                 currencies={Object.keys(currencies)}
                 onCurrencyChange={onCurrencyChange}
+                selectedCurrency={selectedCurrency}
+                convertType={convertType}
             />
             <ValueInput />
         </div>

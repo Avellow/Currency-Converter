@@ -17,6 +17,7 @@ function App() {
     return (
         <div className={s.app}>
             <CurrencyConfig convertType='from' />
+            <CurrencyConfig convertType='to' />
         </div>
     );
 }

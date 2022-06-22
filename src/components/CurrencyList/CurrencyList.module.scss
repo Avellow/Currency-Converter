@@ -14,3 +14,16 @@
   cursor: pointer;
   background-color: #caf6ca;
 }
+
+.list {
+  list-style: none;
+}
+
+.additional {
+  display: block;
+}
+
+.additional:hover {
+  background-color: greenyellow;
+  cursor: pointer;
+}

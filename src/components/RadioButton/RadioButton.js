@@ -5,6 +5,9 @@ const RadioButton = (props) => {
     const {
         value,
         onClick,
+        isChecked,
+        name,
+        ...restProps
     } = props
 
     return (
@@ -12,12 +15,13 @@ const RadioButton = (props) => {
             <input
                 className={style.input}
                 type='radio'
-                name='cur'
                 value={value}
-                id={value}
+                id={name + value}
                 onChange={() => onClick(value)}
+                checked={isChecked}
+                {...restProps}
             />
-            <label className={style.label} htmlFor={value}>{value}</label>
+            <label className={style.label} htmlFor={name+value}>{value}</label>
         </>
     )
 }
