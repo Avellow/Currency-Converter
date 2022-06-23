@@ -1,6 +1,12 @@
 const defaultState = {
-    from: 'USD',
-    to: 'USD',
+    from: {
+        name: 'USD',
+        value: 0
+    },
+    to: {
+        name: 'USD',
+        value: 0
+    },
     rate: 1
 }
 
@@ -12,9 +18,9 @@ const CHANGE_RATE = 'CHANGE_RATE'
 export const converterReducer = (state = defaultState, action) => {
     switch (action.type) {
         case CHANGE_FROM_CURRENCY:
-            return {...state, from: action.payload}
+            return {...state, from: {...state.from, ...action.from}}
         case CHANGE_TO_CURRENCY:
-            return {...state, to: action.payload}
+            return {...state, to: {...state.to, ...action.to}}
         case CHANGE_RATE:
             return {...state, rate: action.payload}
         case CHANGE_CURRENCY:
@@ -24,7 +30,7 @@ export const converterReducer = (state = defaultState, action) => {
     }
 }
 
-export const changeFromCurrency = (payload) => ({type: CHANGE_FROM_CURRENCY, payload})
-export const changeToCurrency = (payload) => ({type: CHANGE_TO_CURRENCY, payload})
+export const changeFromCurrency = (name, value) => ({type: CHANGE_FROM_CURRENCY, from: {name, value}})
+export const changeToCurrency = (name, value) => ({type: CHANGE_TO_CURRENCY, to: {name, value}})
 export const changeCurrency = (payload) => ({type: CHANGE_CURRENCY, payload})
 export const changeRate = (payload) => ({type: CHANGE_RATE, payload})

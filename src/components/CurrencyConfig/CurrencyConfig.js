@@ -1,31 +1,30 @@
 import React from "react";
 import CurrencyList from "../CurrencyList/CurrencyList";
 import ValueInput from "../ValueInput/ValueInput";
-import {useDispatch, useSelector} from "react-redux";
-import {changeCurrency} from "../../store/converterReducer";
+import {useSelector} from "react-redux";
 
 const CurrencyConfig = (props) => {
     const {
         convertType,
+        onCurrencyChange,
+        onValueChange,
     } = props
 
     const currencies = useSelector(state => state.rates.rates.rates) || {}
     const selectedCurrency = useSelector(state => state.converter[convertType])
-    const dispatch = useDispatch()
-
-    function onCurrencyChange(currency) {
-        dispatch(changeCurrency({ [convertType]: currency }))
-    }
 
     return (
         <div>
             <CurrencyList
                 currencies={Object.keys(currencies)}
                 onCurrencyChange={onCurrencyChange}
-                selectedCurrency={selectedCurrency}
+                selectedCurrency={selectedCurrency.name}
                 convertType={convertType}
             />
-            <ValueInput />
+            <ValueInput
+                value={selectedCurrency.value}
+                onValueChange={onValueChange}
+            />
         </div>
     )
 }
