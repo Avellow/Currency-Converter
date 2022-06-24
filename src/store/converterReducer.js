@@ -1,11 +1,11 @@
 const defaultState = {
     from: {
         name: 'USD',
-        value: 0
+        value: 1
     },
     to: {
         name: 'USD',
-        value: 0
+        value: 1
     },
     rate: 1
 }
