@@ -10,7 +10,7 @@ const ADD_RATES = 'ADD_RATES'
 export const ratesReducer = (state = defaultState, action) => {
     switch(action.type) {
         case ADD_RATES:
-            return {...state, rates: action.payload}
+            return {...state, ...action.payload}
         default:
             return state;
     }

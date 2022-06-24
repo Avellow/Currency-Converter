@@ -5,13 +5,14 @@ import {addRatesFromApi} from "../../store/ratesReducer";
 import s from './App.module.scss'
 import CurrencyConfig from "../CurrencyConfig/CurrencyConfig";
 import {changeFromCurrency, changeRate, changeToCurrency} from "../../store/converterReducer";
-import {formatNum, formatValue} from "../../utils/constants";
+import {formatNum, formatValue, getFormatedDate} from "../../utils/constants";
 
 function App() {
 
     const dispatch = useDispatch()
 
-    const currencyRates = useSelector(state => state.rates.rates.rates) || {}
+    const currencyRates = useSelector(state => state.rates.rates) || {}
+    const lastUpdate = useSelector(state => state.rates.putISODate) || ''
 
     const toCurrencyName = useSelector(state => state.converter.to.name)
     const toCurrencyValue = useSelector(state => state.converter.to.value)
@@ -64,6 +65,7 @@ function App() {
                 onCurrencyChange={onToCurrencyChange}
                 onValueChange={onToValueChange}
             />
+            <p>{'Курсы актуальны на момент: ' + getFormatedDate(lastUpdate)}</p>
         </div>
     );
 }

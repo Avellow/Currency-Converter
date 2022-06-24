@@ -10,7 +10,7 @@ const CurrencyConfig = (props) => {
         onValueChange,
     } = props
 
-    const currencies = useSelector(state => state.rates.rates.rates) || {}
+    const currencies = useSelector(state => state.rates.rates) || {}
     const { name, value } = useSelector(state => state.converter[convertType])
 
     return (
