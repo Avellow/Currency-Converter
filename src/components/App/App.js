@@ -5,6 +5,7 @@ import {addRatesFromApi} from "../../store/ratesReducer";
 import s from './App.module.scss'
 import CurrencyConfig from "../CurrencyConfig/CurrencyConfig";
 import {changeFromCurrency, changeRate, changeToCurrency} from "../../store/converterReducer";
+import {formatNum, formatValue} from "../../utils/constants";
 
 function App() {
 
@@ -23,29 +24,31 @@ function App() {
     useEffect(() => dispatch(addRatesFromApi()), [])
 
     function onToCurrencyChange(currency) {
-        const newRate = currencyRates[currency] / currencyRates[fromCurrencyName]
-        const newToValue = fromCurrencyValue * newRate
+        const newRate = formatNum(currencyRates[currency] / currencyRates[fromCurrencyName])
+        const newToValue = formatNum(fromCurrencyValue * newRate)
+
         dispatch(changeToCurrency(currency, newToValue))
         dispatch(changeRate(newRate))
     }
 
     function onFromCurrencyChange(currency) {
-        const newRate = currencyRates[toCurrencyName] / currencyRates[currency]
-        const newToValue = fromCurrencyValue * newRate
+        const newRate = formatNum(currencyRates[toCurrencyName] / currencyRates[currency])
+        const newToValue = formatNum(fromCurrencyValue * newRate)
+
         dispatch(changeFromCurrency(currency, fromCurrencyValue))
         dispatch(changeToCurrency(toCurrencyName, newToValue))
         dispatch(changeRate(newRate))
     }
 
     function onFromValueChange(newValue) {
-        const newToCurrencyValue = newValue * rate
-        dispatch(changeFromCurrency(fromCurrencyName, newValue))
+        const newToCurrencyValue = formatNum(newValue * rate)
+        dispatch(changeFromCurrency(fromCurrencyName, formatValue(newValue)))
         dispatch(changeToCurrency(toCurrencyName, newToCurrencyValue))
     }
 
     function onToValueChange(newValue) {
-        const newFromCurrencyValue = newValue / rate
-        dispatch(changeToCurrency(toCurrencyName, newValue))
+        const newFromCurrencyValue = formatNum(newValue / rate)
+        dispatch(changeToCurrency(toCurrencyName, formatValue(newValue)))
         dispatch(changeFromCurrency(fromCurrencyName, newFromCurrencyValue))
     }
 
