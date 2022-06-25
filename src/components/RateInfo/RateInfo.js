@@ -1,4 +1,5 @@
 import React from "react";
+import style from './RateInfo.module.scss'
 
 const RateInfo = (props) => {
     const {
@@ -9,7 +10,9 @@ const RateInfo = (props) => {
 
     return (
         <div>
-            <p>{`1 ${mainCurrency} = ${rate} ${secondaryCurrency}`}</p>
+            <p className={ style.subtitle }>
+                {`1 ${mainCurrency} = ${rate} ${secondaryCurrency}`}
+            </p>
         </div>
     )
 }
