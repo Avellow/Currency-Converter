@@ -3,9 +3,10 @@
   width: 350px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #cdcdcd;
+
   border-radius: 3px;
   padding: 30px 20px 15px;
+  box-shadow: 0 0 10px 5px rgba(131, 213, 245, 0.25);
 
   .input {
     margin: 0 0 30px;

@@ -3,7 +3,8 @@
 }
 
 .input:checked + .label {
-  background-color: greenyellow;
+  background-color: #63a3f3;
+  color: white;
 }
 
 .label {
@@ -11,6 +12,11 @@
   border: 1px solid #777777;
   border-right: none;
   padding: 10px;
+}
+
+.label:hover {
+  cursor: pointer;
+  background-color: rgba(2, 129, 255, 0.2);
 }
 
 .label:first-of-type {
