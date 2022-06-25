@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {addRatesFromApi} from "../../store/ratesReducer";
 import {formatNum, formatValue, getFormatedDate} from "../../utils/constants";
 import {changeFromCurrency, changeRate, changeToCurrency, swap} from "../../store/converterReducer";
-import s from "../App/App.module.scss";
 import CurrencyConfig from "../CurrencyConfig/CurrencyConfig";
 import Swapper from "../Swapper/Swapper";
 
@@ -64,7 +63,11 @@ const Converter = () => {
                     convertType='from'
                     onCurrencyChange={onFromCurrencyChange}
                     onValueChange={onFromValueChange}
-                />
+                >
+                    <p className={style.updateinfo}>
+                        {'Курсы актуальны на момент: ' + getFormatedDate(lastUpdate)}
+                    </p>
+                </CurrencyConfig>
                 <Swapper
                     onSwap={onSwap}
                 />
@@ -74,9 +77,6 @@ const Converter = () => {
                     onValueChange={onToValueChange}
                 />
             </div>
-            <p className={style.updateinfo}>
-                {'Курсы актуальны на момент: ' + getFormatedDate(lastUpdate)}
-            </p>
         </div>
     );
 }

@@ -8,6 +8,7 @@ const CurrencyConfig = (props) => {
         convertType,
         onCurrencyChange,
         onValueChange,
+        children,
     } = props
 
     const currencies = useSelector(state => state.rates.rates) || {}
@@ -26,6 +27,7 @@ const CurrencyConfig = (props) => {
                 value={value}
                 onValueChange={onValueChange}
             />
+            { children }
         </div>
     )
 }
