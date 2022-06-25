@@ -3,9 +3,10 @@ import style from './Converter.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {addRatesFromApi} from "../../store/ratesReducer";
 import {formatNum, formatValue, getFormatedDate} from "../../utils/constants";
-import {changeFromCurrency, changeRate, changeToCurrency} from "../../store/converterReducer";
+import {changeFromCurrency, changeRate, changeToCurrency, swap} from "../../store/converterReducer";
 import s from "../App/App.module.scss";
 import CurrencyConfig from "../CurrencyConfig/CurrencyConfig";
+import Swapper from "../Swapper/Swapper";
 
 const Converter = () => {
 
@@ -52,6 +53,10 @@ const Converter = () => {
         dispatch(changeFromCurrency(fromCurrencyName, newFromCurrencyValue))
     }
 
+    function onSwap() {
+        dispatch(swap())
+    }
+
     return (
         <div>
             <div className={style.container}>
@@ -59,6 +64,9 @@ const Converter = () => {
                     convertType='from'
                     onCurrencyChange={onFromCurrencyChange}
                     onValueChange={onFromValueChange}
+                />
+                <Swapper
+                    onSwap={onSwap}
                 />
                 <CurrencyConfig
                     convertType='to'
