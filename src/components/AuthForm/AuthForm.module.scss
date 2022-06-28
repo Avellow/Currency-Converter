@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  margin: 20px auto;
+
+  div:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
+.submit {
+  background-color: #8dbaf6;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}

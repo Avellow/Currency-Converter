@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  margin: 10px 0;
+  flex-direction: column;
+
+
+  label {
+
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(196, 196, 196, 0.5);
+  }
+
+
+  span {
+    color: rgb(250, 75, 75);
+  }
+
+}

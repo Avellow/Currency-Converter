@@ -3,6 +3,7 @@ import style from './App.module.scss'
 import Converter from "../Converter/Converter";
 import Header from "../Header/Header";
 import {Route} from "react-router-dom";
+import Login from "../Login/Login";
 
 function App() {
 
@@ -14,6 +15,12 @@ function App() {
                 exact
                 path='/converter'
                 component={Converter}
+            />
+
+            <Route
+                exact
+                path='/admin'
+                component={Login}
             />
 
         </div>
