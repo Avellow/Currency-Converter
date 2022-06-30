@@ -12,7 +12,7 @@ const Header = () => {
     const onLogout = () => dispatch(logout())
 
     return (
-        <div className={style.container}>
+        <header className={style.container}>
             <NavLink to='/converter'>Converter</NavLink>
             <NavLink to='/admin/login'>admin</NavLink>
             {
@@ -25,7 +25,7 @@ const Header = () => {
                     <p>Логин</p>
                 )
             }
-        </div>
+        </header>
     )
 }
 
