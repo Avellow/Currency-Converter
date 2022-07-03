@@ -10,7 +10,7 @@ const ProtectedRoute = ({component: Component, ...props}) => {
 
     return props.isAuth
         ? (<Route component={Component} path={path} {...restProps} />)
-        : (<Redirect to={redirectTo} />)
+        : (<Route path={path}><Redirect to={redirectTo} /></Route>)
 }
 
 export default ProtectedRoute;
