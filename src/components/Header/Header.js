@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <header className={style.container}>
             <NavLink to='/converter'>Converter</NavLink>
-            <NavLink to='/admin/login'>admin</NavLink>
+            <NavLink to='/admin'>admin</NavLink>
             {
                 isAuth ? (
                     <div>
