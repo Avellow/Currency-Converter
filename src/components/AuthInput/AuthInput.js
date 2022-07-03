@@ -17,7 +17,7 @@ const AuthInput = React.forwardRef((props, ref) => {
                     {...inputProps}
                 />
             </label>
-            {error && <span>Ошибочка</span>}
+            {error && <span>{ error.message || 'Поле заполненно некорректно' }</span>}
         </div>
     )
 })
