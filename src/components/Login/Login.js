@@ -17,8 +17,13 @@ const Login = (props) => {
         <AuthForm title='Авторизация' onSubmit={handleSubmit(onSubmit)}>
             <AuthInput
                 labelText='Email'
-                error={errors.name}
-                {...register('email', {maxLength: 50})}
+                type='email'
+                error={errors.email}
+                {
+                    ...register('email', {
+                        validate: {}
+                    })
+                }
             />
             <AuthInput
                 labelText='Пароль'
