@@ -1,3 +1,5 @@
+import {formatNum} from '../utils/constants';
+
 const defaultState = {
     from: {
         name: 'USD',
@@ -28,7 +30,7 @@ export const converterReducer = (state = defaultState, action) => {
                 ...state,
                 to: {...state.from},
                 from: {...state.to},
-                rate: (1 / state.rate)
+                rate: formatNum(1 / state.rate)
             }
         default:
             return state;
