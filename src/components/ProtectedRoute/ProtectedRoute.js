@@ -9,8 +9,8 @@ const ProtectedRoute = ({component: Component, ...props}) => {
     } = props
 
     return props.isAuth
-        ? (<Route component={Component} exact path={path} {...restProps} />)
-        : (<Redirect to={redirectTo} />)
+        ? (<Route component={Component} path={path} {...restProps} />)
+        : (<Route path={path}><Redirect to={redirectTo} /></Route>)
 }
 
 export default ProtectedRoute;

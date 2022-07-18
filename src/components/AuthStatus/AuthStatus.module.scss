@@ -1,0 +1,17 @@
+.container {
+  justify-self: flex-end;
+
+  .authed {
+    display: flex;
+  }
+
+  .status {
+    margin: 0 10px;
+  }
+
+  .login {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+  }
+}
